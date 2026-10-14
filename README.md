@@ -28,7 +28,7 @@ Evaluated on a held-out test set (20% of the dataset, stratified):
 | ------------------- | ------ |
 | Test accuracy       | ~0.985 |
 | Precision (spam)    | ~0.98  |
-| Recall (spam)       | ~0.89  |
+| Recall (spam)       | ~0.92  |
 | F1-score (spam)     | ~0.94  |
 | ROC-AUC             | ~0.99  |
 
