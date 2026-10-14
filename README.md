@@ -67,7 +67,7 @@ The notebook downloads the dataset automatically on the first run and caches it 
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/<your-username>/sms-spam-svm.git
+git clone https://github.com/zeehad-hasan/sms-spam-svm.git
 cd sms-spam-svm
 ```
 
