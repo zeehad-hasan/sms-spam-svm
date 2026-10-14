@@ -156,18 +156,43 @@ After running the notebook, the saved model can be loaded and used to classify n
 
 ```python
 import joblib
+import re
+import string
+from nltk.corpus import stopwords
+from nltk.stem import WordNetLemmatizer
+
+NEGATIONS = {"no", "not", "nor", "never", "none", "cannot",
+             "dont", "cant", "wont", "isnt", "arent", "wasnt", "werent",
+             "doesnt", "didnt", "havent", "hasnt", "hadnt",
+             "shouldnt", "wouldnt", "couldnt", "mustnt", "neednt"}
+STOP_WORDS = set(stopwords.words("english")) - NEGATIONS
+LEMMATIZER = WordNetLemmatizer()
+
+def clean_text(text):
+    text = str(text).lower()
+    text = re.sub(r"http\S+|www\.\S+", " ", text)
+    text = re.sub(r"\S+@\S+", " ", text)
+    text = re.sub(r"\d+", " ", text)
+    text = text.translate(str.maketrans("", "", string.punctuation))
+    text = re.sub(r"[^a-z\s]", " ", text)
+    tokens = [LEMMATIZER.lemmatize(w) for w in text.split()
+              if w not in STOP_WORDS and len(w) > 1]
+    return " ".join(tokens).strip()
 
 model = joblib.load("models/sms_spam_svm.joblib")
 
 def predict_sms(text):
-    prediction = model.predict([text])[0]
-    return "Spam" if prediction == 1 else "Ham"
+    cleaned = clean_text(text)
+    label = "Spam" if model.predict([cleaned])[0] == 1 else "Ham"
+    score = float(model.decision_function([cleaned])[0])
+    return {"label": label, "score": round(score, 4)}
 
 print(predict_sms("Congratulations! You have won a free iPhone. Click here now."))
-# -> Spam
+# -> {'label': 'Spam', 'score': 1.0552}
 
 print(predict_sms("Hi, are we meeting tomorrow at 3 PM?"))
-# -> Ham
+# -> {'label': 'Ham', 'score': -0.9113}
+
 ```
 
 ---
