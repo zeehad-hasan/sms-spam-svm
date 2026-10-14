@@ -191,7 +191,6 @@ print(predict_sms("Congratulations! You have won a free iPhone. Click here now."
 
 print(predict_sms("Hi, are we meeting tomorrow at 3 PM?"))
 # -> {'label': 'Ham', 'score': -0.9113}
-
 ```
 
 ---
