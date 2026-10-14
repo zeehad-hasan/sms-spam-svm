@@ -4,7 +4,6 @@ A machine-learning project that classifies SMS messages as **spam** or **ham (le
 
 ![Python](https://img.shields.io/badge/python-3.10%2B-blue)
 ![scikit-learn](https://img.shields.io/badge/scikit--learn-1.3%2B-orange)
-![License](https://img.shields.io/badge/license-MIT-green)
 
 ---
 
