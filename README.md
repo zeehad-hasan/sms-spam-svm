@@ -97,7 +97,7 @@ jupyter notebook SMS_Spam_SVM.ipynb
 
 Or open it directly in Google Colab:
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/<your-username>/sms-spam-svm/blob/main/SMS_Spam_SVM.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/zeehad-hasan/sms-spam-svm/blob/main/SMS_Spam_SVM.ipynb)
 
 ---
 
