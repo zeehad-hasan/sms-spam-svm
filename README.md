@@ -191,12 +191,6 @@ print(predict_sms("Hi, are we meeting tomorrow at 3 PM?"))
 
 ---
 
-## License
-
-Released under the MIT License. See `LICENSE` for details.
-
----
-
 ## Acknowledgements
 
 - Dataset: Almeida, T. A., Gómez Hidalgo, J. M., & Yamakami, A. (2011). *Contributions to the Study of SMS Spam Filtering: New Collection and Results.*
